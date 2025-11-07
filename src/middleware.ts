@@ -4,12 +4,8 @@ export function middleware(request: Request) {
   const host = request.headers.get("host") || "";
   const url = new URL(request.url);
 
-  if (
-    host === "neuralforgestudios.com" ||
-    host === "www.neuralforgestudios.com" ||
-    host === "www.neuralforgestudios.ai"
-  ) {
-    return NextResponse.redirect(`https://neuralforgestudios.ai${url.pathname}${url.search}`, 301);
+  if (host === "www.pixelkeepsakes.com") {
+    return NextResponse.redirect(`https://pixelkeepsakes.com${url.pathname}${url.search}`, 301);
   }
 
   return NextResponse.next(); // Continue as usual
