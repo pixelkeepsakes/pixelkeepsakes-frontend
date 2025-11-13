@@ -1,5 +1,6 @@
 "use client";
 import { useState, useEffect } from "react";
+import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
 const sections = ["home", "mystery", "rumi", "school", "about", "contact"];
@@ -59,11 +60,15 @@ const Navbar = () => {
   return (
     <nav className="fixed top-0 w-full bg-white bg-opacity-80 backdrop-blur-md p-2 z-50 text-[var(--brand-blue)] uppercase text-xs">
       <div className="container mx-auto flex justify-between items-center">
-          <img
-        src="/Logo.svg"
-        alt="Pixel Keepsakes Logo"
-        className="w-60 h-auto"
-      />
+
+        <div className="relative w-60 h-16">
+          <Image
+            src="/Logo.svg"
+            alt="Pixel Keepsakes Logo"
+            fill
+            style={{ objectFit: "contain" }}
+          />
+        </div>
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6">
@@ -71,9 +76,8 @@ const Navbar = () => {
             <a
               key={section}
               href={`#${section}`}
-              className={`text-[var(--brand-blue)] hover:text-[var(--brand-blue)] font-bold tracking-wide transition duration-300 relative group ${
-                activeSection === section ? "text-[var(--brand-orange)]" : ""
-              }`}
+              className={`text-[var(--brand-blue)] hover:text-[var(--brand-blue)] font-bold tracking-wide transition duration-300 relative group ${activeSection === section ? "text-[var(--brand-orange)]" : ""
+                }`}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[var(--brand-orange)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
@@ -87,19 +91,16 @@ const Navbar = () => {
           onClick={toggleMenu}
         >
           <div
-            className={`h-0.75 w-8 bg-white rounded transition-transform duration-300 ${
-              menuOpen ? "rotate-45 translate-y-2" : ""
-            }`}
+            className={`h-0.75 w-8 bg-white rounded transition-transform duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""
+              }`}
           />
           <div
-            className={`h-0.75 w-8 bg-white rounded transition-opacity duration-300 ${
-              menuOpen ? "opacity-0" : "opacity-100"
-            }`}
+            className={`h-0.75 w-8 bg-white rounded transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"
+              }`}
           />
           <div
-            className={`h-0.75 w-8 bg-white rounded transition-transform duration-300 ${
-              menuOpen ? "-rotate-45 -translate-y-1" : ""
-            }`}
+            className={`h-0.75 w-8 bg-white rounded transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-1" : ""
+              }`}
           />
         </button>
       </div>

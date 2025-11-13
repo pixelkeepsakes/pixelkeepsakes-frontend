@@ -21,7 +21,7 @@ const RumiPrint = () => {
           className="w-full h-auto rounded-lg shadow-lg"
         />
       </div>
-      <p>A custom print reimagining the characters from a popular story as younger versions. <br />The main character, Rumi, features my daughter's likeness. This is a personal, non-commercial piece inspired by the original artwork.</p>
+      <p>A custom print reimagining the characters from a popular story as younger versions. <br />The main character, Rumi, features my daughter&apos;s likeness. This is a personal, non-commercial piece inspired by the original artwork.</p>
     </section>
   );
 };

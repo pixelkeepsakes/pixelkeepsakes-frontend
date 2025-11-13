@@ -18,7 +18,7 @@ const BigBraveSchoolDay = () => {
       <h2
         className="mx-auto font-normal leading-tight mb-9 text-3xl lg:text-4xl"
       >
-        Adrianna's Big, Brave School Day 
+        Adrianna&apos;s Big, Brave School Day 
       </h2>
       <ImageCarousel
         slides={slides}
