@@ -58,7 +58,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 w-full bg-white bg-opacity-80 backdrop-blur-md p-2 z-50 text-[var(--brand-blue)] uppercase text-xs">
+    <nav className="fixed top-0 w-full bg-white bg-opacity-80 backdrop-blur-md p-0 z-50 text-[var(--brand-blue)] uppercase text-xs">
       <div className="container mx-auto flex justify-between items-center">
 
         <div className="relative w-60 h-16">
