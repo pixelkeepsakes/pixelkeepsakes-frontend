@@ -18,7 +18,7 @@ const Hero = () => {
       >
         <button
           className="btn btn-large btn-primary btn-grow font-semibold text-lg px-6 py-3">
-          <a href="#technology">Browse Stories</a>
+          <a href="#mystery">Browse Stories</a>
         </button>
         <button
           className="btn btn-large btn-hero btn-grow font-semibold text-lg px-6 py-3">
