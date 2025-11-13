@@ -2,11 +2,15 @@
 
 import Navbar from "@/components/layout/Navbar";
 import Footer from "@/components/layout/Footer";
-import Hero from "@/components/sections/Home";
-import Technology from "@/components/sections/Technology";
+import Hero from "@/components/sections/Hero";
 import About from "@/components/sections/About";
-import Investors from "@/components/sections/Investors";
 import Contact from "@/components/sections/Contact";
+
+import MysteryMissingKeys from "@/components/sections/MysteryMissingKeys";
+import RumiPrint from "@/components/sections/RumiPrint";
+import BigBraveSchoolDay from "@/components/sections/BigBraveSchoolDay";
+
+
 
 export default function Home() {
   return (
@@ -18,14 +22,14 @@ export default function Home() {
         {/* Home Section */}
         <Hero />
 
-        {/* Technology Section */}
-        <Technology />
+        <MysteryMissingKeys />
+
+        <RumiPrint />
+
+        <BigBraveSchoolDay />
 
         {/* About Us Section */}
         <About />
-
-        {/* Investors Section */}
-        <Investors />
 
         {/* Contact Section */}
         <Contact />

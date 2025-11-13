@@ -39,9 +39,9 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-dvh bg-gradient-to-b from-black to-gray-900 pt-[52px] sm:pt-[56px] px-10 sm:pb-6"
+      className="min-h-dvh pt-[52px] sm:pt-[56px] px-10 sm:pb-6 flex items-center"
     >
-      <div className="flex flex-col md:flex-row">
+      <div className="flex flex-col md:flex-row w-full justify-center md:justify-start gap-10">
         {/* Left Side */}
         <div className="hidden md:flex flex-col w-1/2">
           <h2
@@ -49,8 +49,8 @@ export default function Contact() {
         text-4xl
         lg:text-6xl"
           >
-            Get in <br />
-            touch.
+            Make Your  <br />
+            Own Storybook
           </h2>
         </div>
 
@@ -58,8 +58,8 @@ export default function Contact() {
         <div className="w-full md:w-2/3 xl:w-1/3">
           <div className="card card-light p-6 sm:p-10">
             <p className="text-xl mb-6 font-bold">
-              Have questions? <br />
-              We&rsquo;d love to connect.
+              Every story is unique, <br />
+              yours starts here.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <label htmlFor="name">Full Name*</label>

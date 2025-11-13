@@ -2,7 +2,7 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 
-const sections = ["home", "technology", "about", "investors", "contact"];
+const sections = ["home", "mystery", "rumi", "school", "about", "contact"];
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -57,11 +57,13 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 w-full bg-black bg-opacity-80 backdrop-blur-md p-4 z-50">
+    <nav className="fixed top-0 w-full bg-white bg-opacity-80 backdrop-blur-md p-2 z-50 text-[var(--brand-blue)] uppercase text-xs">
       <div className="container mx-auto flex justify-between items-center">
-        <h1 className="font-extrabold font-display tracking-wider leading-tight text-base md:text-lg">
-          Pixel Keepsakes
-        </h1>
+          <img
+        src="/Logo.svg"
+        alt="Pixel Keepsakes Logo"
+        className="w-60 h-auto"
+      />
 
         {/* Desktop Navigation */}
         <div className="hidden md:flex space-x-6">
@@ -69,12 +71,12 @@ const Navbar = () => {
             <a
               key={section}
               href={`#${section}`}
-              className={`text-[#be9ed3] hover:text-white font-semibold tracking-wide transition duration-300 relative group ${
-                activeSection === section ? "text-white" : ""
+              className={`text-[var(--brand-blue)] hover:text-[var(--brand-blue)] font-bold tracking-wide transition duration-300 relative group ${
+                activeSection === section ? "text-[var(--brand-orange)]" : ""
               }`}
             >
               {section.charAt(0).toUpperCase() + section.slice(1)}
-              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[#9812fc] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
+              <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[var(--brand-orange)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </a>
           ))}
         </div>

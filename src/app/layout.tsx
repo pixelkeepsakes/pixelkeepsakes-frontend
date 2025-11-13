@@ -1,23 +1,23 @@
 import type { Metadata } from "next";
 import '@/styles/globals.css';
-import { Inter, Poppins } from "next/font/google";
+import { Open_Sans, Edu_TAS_Beginner } from "next/font/google";
 
-const inter = Inter({
-  subsets: ["latin"],
-  display: "swap",
-  variable: "--font-inter",
+const eduTASBeginner = Edu_TAS_Beginner({
+  subsets: ['latin'],
+  display: 'swap', 
+  weight: ['400', '500', '600', '700'],
+  variable: "--font-edu-tas-beginner",
 });
 
-const poppins = Poppins({
-  subsets: ['latin'],
-  display: 'swap',
-  variable: '--font-poppins',
-  weight: ["100", "200", "300", "400", "500", "600", "700", "800"],
+const openSans = Open_Sans({
+  subsets: ["latin"],
+  display: "swap",
+  variable: "--font-open-sans",
 });
 
 export const metadata: Metadata = {
-  title: "NeuralForge Studios",
-  description: "Innovative AI solutions powering personalized experiences, from generative illustrations to next-gen tools.",
+  title: "Pixel Keepsakes",
+  description: "See yourself in the story. Custom storybooks that turn your favorite people into the characters.",
 };
 
 export default function RootLayout({
@@ -28,7 +28,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className={`${inter.variable} ${poppins.variable}`}
+      className={`${eduTASBeginner.variable} ${openSans.variable}`}
     >
       <body>
         {children}
