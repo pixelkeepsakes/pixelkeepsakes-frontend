@@ -163,9 +163,9 @@ export default function ImageCarousel({
   };
 
   return (
-    <div className={`relative w-full flex items-center justify-center py-16 ${className}`}>
+    <div className={`relative w-full flex items-center justify-center pt-10 pb-16 ${className}`}>
       {/* Carousel Wrapper - Added padding to show partial slides */}
-      <div className="relative w-full max-w-[100vw] overflow-hidden px-[25vw]">
+      <div className="relative w-full max-w-[100vw] overflow-hidden px-0 lg:px-[25vw]">
         <div
           ref={trackRef}
           className={`flex gap-[2vw] ${isTransitioning ? 'transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]' : ''}`}
@@ -176,20 +176,21 @@ export default function ImageCarousel({
           {extendedSlides.map((slide, index) => (
             <div
               key={index}
-              className={`flex-shrink-0 w-full relative transition-opacity duration-[800ms] ${index === currentIndex ? 'opacity-100' : 'opacity-40'
-                }`}
+              className={`flex-shrink-0 w-full relative transition-opacity duration-[800ms]`}
               style={{ aspectRatio }}
             >
-              <div className="w-full h-full rounded-lg overflow-hidden relative">
+              <div className="w-full h-full rounded-lg overflow-hidden relative group ">
                 <Image
                   src={slide.image}
                   alt={slide.alt || slide.label}
                   fill
                   className="object-cover"
-                  sizes="50vw"
+                  sizes="(min-width: 1024px) 50vw, 100vw"
+                  quality={90}
                   priority={index < 4}
                 />
-                <div className="absolute bottom-5 left-5 bg-black/50 backdrop-blur-md px-4 py-2 rounded-full text-sm font-medium text-white">
+                <div className="absolute bottom-2 left-2 bg-black/50 backdrop-blur-md px-3 py-2 rounded-full text-xs font-medium text-white
+                opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                   {slide.label}
                 </div>
               </div>
@@ -200,10 +201,10 @@ export default function ImageCarousel({
 
       {/* Navigation Arrows */}
       {showControls && (
-        <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-10 pointer-events-none z-10">
+        <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-6 sm:px-10 pointer-events-none z-10">
           <button
             onClick={prevSlide}
-            className="w-[60px] h-[60px] bg-white backdrop-blur-md rounded-full pointer-events-auto transition-all duration-300 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-[var(--brand-blue)]"
+            className="w-[40px] h-[40px] bg-white backdrop-blur-md rounded-full pointer-events-auto transition-all duration-300 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-[var(--brand-blue)]"
             aria-label="Previous slide"
           >
             <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
@@ -218,7 +219,7 @@ export default function ImageCarousel({
           </button>
           <button
             onClick={nextSlide}
-            className="w-[60px] h-[60px] bg-white backdrop-blur-md rounded-full pointer-events-auto transition-all duration-300 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-[var(--brand-blue)]"
+            className="w-[40px] h-[40px] bg-white backdrop-blur-md rounded-full pointer-events-auto transition-all duration-300 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-[var(--brand-blue)]"
             aria-label="Next slide"
           >
             <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
@@ -236,7 +237,7 @@ export default function ImageCarousel({
 
       {/* Controls */}
       {showControls && (
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-10 z-10">
+        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 sm:px-10 z-10">
           {/* Play/Pause Button */}
           <button
             onClick={togglePlayPause}
@@ -261,8 +262,8 @@ export default function ImageCarousel({
               <div
                 key={index}
                 className={`h-1 rounded-full transition-all duration-300 relative overflow-hidden ${index === actualIndex
-                    ? 'w-8 bg-white/50'
-                    : 'w-1 bg-white/30'
+                  ? 'w-8 bg-white/50'
+                  : 'w-1 bg-white/30'
                   }`}
               >
                 {index === actualIndex && (
@@ -276,13 +277,15 @@ export default function ImageCarousel({
           </div>
 
           {/* View All Link */}
-          {showViewAll && (
+          {showViewAll ? (
             <a
               href={viewAllHref}
               className="text-white text-xs uppercase tracking-wider transition-opacity duration-300 hover:opacity-70"
             >
               View all
             </a>
+          ) : (
+            <span>&nbsp;</span>
           )}
         </div>
       )}

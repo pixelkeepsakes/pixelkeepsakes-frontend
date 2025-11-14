@@ -13,19 +13,19 @@ const BigBraveSchoolDay = () => {
   return (
     <section
       id="school"
-      className="min-h-dvh flex flex-col justify-center"
+      className="flex flex-col justify-center min-h-[calc(100dvh-64px)] py-[32px]"
     >
       <h2
-        className="mx-auto font-normal leading-tight mb-9 text-3xl lg:text-4xl"
+        className="text-center font-normal leading-tight text-3xl lg:text-4xl"
       >
-        Adrianna&apos;s Big, Brave School Day 
+        Adrianna&apos;s Big, Brave <span className="whitespace-nowrap">School Day</span>
       </h2>
       <ImageCarousel
         slides={slides}
         aspectRatio="16/10"
         autoplayDuration={4000}
         showControls={true}
-        showViewAll={true}
+        showViewAll={false}
         viewAllHref="/portfolio"
       />
     </section>

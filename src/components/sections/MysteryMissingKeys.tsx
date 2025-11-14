@@ -14,10 +14,10 @@ const BigBraveSchoolDay = () => {
   return (
     <section
       id="mystery"
-      className="min-h-dvh flex flex-col justify-center"
+      className="flex flex-col justify-center min-h-[calc(100dvh-64px)] py-[32px]"
     >
       <h2
-        className="mx-auto font-normal leading-tight mb-9 text-3xl lg:text-4xl"
+        className="text-center font-normal leading-tight text-3xl lg:text-4xl"
       >
         The Mystery of the Missing Keys
       </h2>
@@ -26,9 +26,10 @@ const BigBraveSchoolDay = () => {
         aspectRatio="2/1"
         autoplayDuration={4000}
         showControls={true}
-        showViewAll={true}
+        showViewAll={false}
         viewAllHref="/portfolio"
       />
+
     </section>
   );
 };

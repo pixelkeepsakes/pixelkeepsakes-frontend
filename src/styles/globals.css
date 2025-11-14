@@ -49,6 +49,7 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    scroll-padding-top: 64px;
   }
 
   body {
@@ -173,22 +174,60 @@
   }
 
   .hero-bg {
-    background-image: url('/hero-1920.png');
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;
+    background-image: url('/hero/hero-640.png');
   }
 
-  @media (max-width: 1536px) {
+  /* ≥ 640px */
+  @media (min-width: 640px) {
     .hero-bg {
-      background-image: url('/hero-1920.png');
+      background-image: url('/hero/hero-1024.png');
     }
   }
 
-  @media (max-width: 1024px) {
+  /* ≥ 1024px */
+  @media (min-width: 1024px) {
     .hero-bg {
-      background-image: url('/hero-1920.png');
+      background-image: url('/hero/hero-1280.png');
     }
+  }
+
+  /* ≥ 1280px */
+  @media (min-width: 1280px) {
+    .hero-bg {
+      background-image: url('/hero/hero-1536.png');
+    }
+  }
+
+  /* ≥ 1536px */
+  @media (min-width: 1536px) {
+    .hero-bg {
+      background-image: url('/hero/hero-1920.png');
+    }
+  }
+
+  /* ≥ 1920px */
+  @media (min-width: 1920px) {
+    .hero-bg {
+      background-image: url('/hero/hero-2560.png');
+    }
+  }
+
+  /* ≥ 2560px */
+  @media (min-width: 2560px) {
+    .hero-bg {
+      background-image: url('/hero/hero-3840.png');
+    }
+  }
+
+  .hero-shape {
+    border-radius: 58% 42% 33% 67% / 55% 45% 65% 35%;
+    background: color-mix(in srgb, var(--brand-blue) 70%, transparent);
+    backdrop-filter: blur(12px);
+    border: 1px solid white;
+    padding: 4em;
   }
 
   .btn {
@@ -207,17 +246,16 @@
   /* Hero Button Style */
   .btn-hero {
     @apply relative z-0 flex items-center gap-2 overflow-hidden border;
+    background: rgba(255, 255, 255, 0.7);
+    backdrop-filter: blur(12px);
     border-color: var(--brand-blue);
-    color: var(--brand-blue);
+    mix-blend-mode: screen;
+    color: black;
   }
 
   .btn-hero:before {
     @apply absolute inset-0 -z-10 translate-x-[170%] translate-y-[170%] scale-[2.5] rounded-full transition-transform duration-1000 content-[''];
     background-color: var(--brand-blue);
-  }
-
-  .btn-hero:hover {
-    @apply text-neutral-900;
   }
 
   .btn-hero:hover:before {

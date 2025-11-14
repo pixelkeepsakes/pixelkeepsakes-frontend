@@ -1,7 +1,7 @@
 import { NextResponse } from "next/server";
 import { Resend } from "resend";
 
-const resend = new Resend("re_6wmFMysc_9TpApVNoa5UHo55q2QLSBwgi"); // Your Resend API key
+const resend = new Resend("re_SCxGeWCi_9J7mdC4TRXxWyY2hfsmTJoFT"); // Your Resend API key
 
 export async function POST(req: Request) {
   try {
@@ -9,8 +9,8 @@ export async function POST(req: Request) {
 
     // Send the email using the Resend SDK
     await resend.emails.send({
-      from: "contact@neuralforgestudios.com", // Verified sender domain
-      to: "contact@neuralforgestudios.com", // Your own email
+      from: "hello@pixelkeepsakes.com", // Verified sender domain
+      to: "hello@pixelkeepsakes.com", // Your own email
       subject: "New Contact Form Submission",
       html: `
           <p><strong>Name:</strong> ${formData.name}</p>

@@ -58,7 +58,7 @@ const Navbar = () => {
   }, []);
 
   return (
-    <nav className="fixed top-0 w-full bg-white bg-opacity-80 backdrop-blur-md p-0 z-50 text-[var(--brand-blue)] uppercase text-xs">
+    <nav className="fixed top-0 w-full bg-white px-3 sm:px-0 z-50 text-[var(--brand-blue)] uppercase text-xs">
       <div className="container mx-auto flex justify-between items-center">
 
         <div className="relative w-60 h-16">
@@ -91,15 +91,15 @@ const Navbar = () => {
           onClick={toggleMenu}
         >
           <div
-            className={`h-0.75 w-8 bg-white rounded transition-transform duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""
+            className={`h-0.75 w-8 bg-[var(--brand-blue)] rounded transition-transform duration-300 ${menuOpen ? "rotate-45 translate-y-2" : ""
               }`}
           />
           <div
-            className={`h-0.75 w-8 bg-white rounded transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"
+            className={`h-0.75 w-8 bg-[var(--brand-blue)] rounded transition-opacity duration-300 ${menuOpen ? "opacity-0" : "opacity-100"
               }`}
           />
           <div
-            className={`h-0.75 w-8 bg-white rounded transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-1" : ""
+            className={`h-0.75 w-8 bg-[var(--brand-blue)] rounded transition-transform duration-300 ${menuOpen ? "-rotate-45 -translate-y-1" : ""
               }`}
           />
         </button>
@@ -113,7 +113,7 @@ const Navbar = () => {
             animate={{ opacity: 1, scale: 1, y: 0 }}
             exit={{ opacity: 0, scale: 0.95, y: 10 }}
             transition={{ duration: 0.3 }}
-            className="fixed top-0 left-0 w-screen h-screen bg-black bg-opacity-90 flex flex-col items-center justify-center space-y-6 text-white text-2xl font-bold"
+            className="fixed top-0 left-0 w-screen h-screen bg-[var(--brand-orange)] bg-opacity-90 flex flex-col items-center justify-center space-y-6 text-white text-2xl font-bold"
           >
             {sections.map((section, index) => (
               <motion.a
@@ -124,7 +124,7 @@ const Navbar = () => {
                 animate={{ opacity: 1 }} // Fade in to full opacity
                 exit={{ opacity: 0 }} // Fade out when exiting
                 transition={{ delay: index * 0.1, duration: 0.3 }}
-                className="hover:text-[#be9ed3]"
+                className="hover:text-[var(--brand-blue)]"
               >
                 {section.charAt(0).toUpperCase() + section.slice(1)}
               </motion.a>

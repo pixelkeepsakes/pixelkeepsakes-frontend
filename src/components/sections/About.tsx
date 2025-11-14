@@ -2,9 +2,9 @@ const About = () => {
   return (
     <section
       id="about"
-      className="min-h-dvh flex justify-center pt-[52px] sm:pt-[56px] px-3"
+      className="flex justify-center min-h-[calc(100dvh-64px)] px-3"
     >
-      <div className="card card-light flex-1 flex flex-col justify-center p-6 sm:p-10">
+      <div className="card card-light flex-1 flex flex-col justify-center p-6 sm:p-10 my-1">
         <h2
           className="font-semibold 
               text-4xl

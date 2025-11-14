@@ -39,7 +39,7 @@ export default function Contact() {
   return (
     <section
       id="contact"
-      className="min-h-dvh pt-[52px] sm:pt-[56px] px-10 sm:pb-6 flex items-center"
+      className="px-10 flex items-center min-h-[calc(100dvh-64px)] py-[32px]"
     >
       <div className="flex flex-col md:flex-row w-full justify-center md:justify-start gap-10">
         {/* Left Side */}

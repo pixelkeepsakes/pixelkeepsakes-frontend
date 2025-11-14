@@ -2,19 +2,21 @@ const Hero = () => {
   return (
     <section
       id="home"
-      className="min-h-dvh flex flex-col justify-center items-center text-white pt-[52px] sm:pt-[56px] px-6 hero-bg"
+      className="min-h-dvh flex flex-col justify-center items-center text-white pt-[64px] px-6 hero-bg"
     >
-      <h1 className="text-4xl sm:text-5xl lg:text-6xl font-bold text-center">
-        See yourself <br />in the story.
-      </h1>
-      <p className="mt-4 text-lg sm:text-xl lg:text-2xl text-center max-w-xl">
-        Custom storybooks that turn <br />your favorite people into the characters.
-      </p>
+      <div className="hero-shape">
+        <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-center">
+          See yourself <br />in the story.
+        </h1>
+        <p className="mt-4 text-lg sm:text-xl lg:text-xl text-center max-w-xl">
+          Custom storybooks that turn <br />your favorite people into the characters.
+        </p>
+      </div>
 
       <div
-        className="flex mt-12
-            space-x-4
-            lg:space-x-6"
+        className="flex 
+            mt-4 sm:mt-6 lg:mt-8 xl:mt-10
+            space-x-4 lg:space-x-6"
       >
         <button
           className="btn btn-large btn-primary btn-grow font-semibold text-lg px-6 py-3">
