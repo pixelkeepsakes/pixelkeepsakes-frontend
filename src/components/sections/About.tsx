@@ -4,7 +4,7 @@ const About = () => {
       id="about"
       className="flex justify-center min-h-[calc(100dvh-64px)] px-3"
     >
-      <div className="card card-light flex-1 flex flex-col justify-center p-6 sm:p-10 my-1">
+      <div className="card card-light flex-1 flex flex-col justify-center p-6 sm:p-10 my-3">
         <h2
           className="font-semibold 
               text-4xl
