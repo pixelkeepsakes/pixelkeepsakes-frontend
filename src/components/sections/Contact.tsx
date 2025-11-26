@@ -46,7 +46,7 @@ export default function Contact() {
       } else {
         setStatus("Oops! Something went wrong. Please try again.");
       }
-    } catch (_error) {
+    } catch {
       setStatus("Oops! Something went wrong. Please try again.");
     }
   };
@@ -64,7 +64,7 @@ export default function Contact() {
         text-4xl
         lg:text-6xl"
           >
-            
+
             Start Your <br />Personalized <br />Book
           </h2>
         </div>
