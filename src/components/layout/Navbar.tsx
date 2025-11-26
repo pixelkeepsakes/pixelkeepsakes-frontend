@@ -3,7 +3,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-const sections = ["home", "mystery", "rumi", "school", "about", "contact"];
+const sections = ["home", "mystery", "rumi", "school", "about", "book"];
+const displayNames: Record<string, string> = {
+  home: "Home",
+  mystery: "Mystery",
+  rumi: "Rumi",
+  school: "School",
+  about: "About",
+  book: "Book A Story",
+};
 
 const Navbar = () => {
   const [activeSection, setActiveSection] = useState("home");
@@ -79,7 +87,7 @@ const Navbar = () => {
               className={`text-[var(--brand-blue)] hover:text-[var(--brand-blue)] font-bold tracking-wide transition duration-300 relative group ${activeSection === section ? "text-[var(--brand-orange)]" : ""
                 }`}
             >
-              {section.charAt(0).toUpperCase() + section.slice(1)}
+              {displayNames[section]}
               <span className="absolute bottom-0 left-0 w-full h-0.5 bg-[var(--brand-orange)] scale-x-0 group-hover:scale-x-100 transition-transform duration-300"></span>
             </a>
           ))}
@@ -126,7 +134,7 @@ const Navbar = () => {
                 transition={{ delay: index * 0.1, duration: 0.3 }}
                 className="hover:text-[var(--brand-blue)]"
               >
-                {section.charAt(0).toUpperCase() + section.slice(1)}
+                {displayNames[section]}
               </motion.a>
             ))}
           </motion.div>

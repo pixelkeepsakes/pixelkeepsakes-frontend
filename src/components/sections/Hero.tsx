@@ -4,7 +4,7 @@ const Hero = () => {
       id="home"
       className="min-h-dvh flex flex-col justify-center items-center text-white pt-[64px] px-6 hero-bg"
     >
-      <div className="hero-shape">
+      <div className="hero-shape p-11 sm:p-16">
         <h1 className="text-3xl sm:text-4xl lg:text-5xl xl:text-5xl font-bold text-center">
           See yourself <br />in the story.
         </h1>
@@ -24,7 +24,7 @@ const Hero = () => {
         </button>
         <button
           className="btn btn-large btn-hero btn-grow font-semibold text-lg px-6 py-3">
-          <a href="#contact">Ask About a Book</a>
+          <a href="#book">Ask About a Book</a>
         </button>
       </div>
     </section>

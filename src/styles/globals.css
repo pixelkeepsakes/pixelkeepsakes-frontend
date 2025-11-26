@@ -101,8 +101,24 @@
   }
 
   input,
+  select,
   textarea {
     @apply p-3 rounded-lg bg-gray-100 text-black font-medium rounded-md border-2 border-gray-100 outline-none;
+  }
+
+  /* Change the dropdown arrow look */
+  select {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    background-position: right 1rem center;
+    background-repeat: no-repeat;
+    background-size: 1rem;
+    background-image: url("data:image/svg+xml;utf8,<svg fill='gray' height='24' width='24' viewBox='0 0 24 24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  }
+
+  select option:not([value=""]) {
+    color: black;
   }
 
   input::placeholder,
@@ -111,8 +127,13 @@
   }
 
   input:focus,
+  select:focus,
   textarea:focus {
     @apply bg-white outline-none;
+  }
+
+  select:focus {
+    @apply border-2 border-gray-100 text-black;
   }
 }
 
@@ -227,7 +248,6 @@
     background: color-mix(in srgb, var(--brand-blue) 70%, transparent);
     backdrop-filter: blur(12px);
     border: 1px solid white;
-    padding: 4em;
   }
 
   .btn {
