@@ -33,7 +33,8 @@ export default function Contact() {
       });
 
       if (res.ok) {
-        setStatus("Thank you! Your spot is reserved.");
+        setStatus("Thank you! We&apos;ll be in touch soon.");
+        setTimeout(() => setStatus(""), 5000);
         setFormData({
           name: "",
           email: "",
@@ -45,7 +46,7 @@ export default function Contact() {
       } else {
         setStatus("Oops! Something went wrong. Please try again.");
       }
-    } catch (error) {
+    } catch (_error) {
       setStatus("Oops! Something went wrong. Please try again.");
     }
   };
