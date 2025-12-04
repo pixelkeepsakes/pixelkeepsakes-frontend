@@ -1,4 +1,5 @@
 import { useState } from "react";
+import Script from "next/script";
 
 export default function Contact() {
   const [formData, setFormData] = useState({
@@ -22,6 +23,12 @@ export default function Contact() {
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setStatus("Sending...");
+
+    if (typeof window !== "undefined" && typeof window.gtag === "function") {
+      window.gtag("event", "landing_form_submit", {
+        form_name: "ask_about_book",
+      });
+    }
 
     try {
       const res = await fetch("https://usebasin.com/f/edffe3767c6a", {
