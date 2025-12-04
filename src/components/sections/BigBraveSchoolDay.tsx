@@ -1,5 +1,7 @@
 import ImageCarousel from '../ImageCarousel';
 
+const title = 'Adrianna&apos;s Big, Brave School Day';
+
 const slides = [
   { image: '/BigBraveSchoolDay/BBSDPhotoCover.png', label: 'Front Cover', alt: 'Front Cover' },
   { image: '/BigBraveSchoolDay/BBSDSlide1.png', label: 'Pages 2-3: The Night Before', alt: 'Pages 2-3: The Night Before' },
@@ -7,7 +9,6 @@ const slides = [
   { image: '/BigBraveSchoolDay/BBSDSlide3.png', label: 'Pages 14-15: Laughter in the Air', alt: 'Pages 14-15: Laughter in the Air' },
   { image: '/BigBraveSchoolDay/BBSDSlide4.png', label: 'Pages 18-19: Proud and Happy', alt: 'Pages 18-19: Proud and Happy' },
 ];
-
 
 const BigBraveSchoolDay = () => {
   return (
@@ -18,7 +19,7 @@ const BigBraveSchoolDay = () => {
       <h2
         className="text-center font-normal leading-tight text-3xl lg:text-4xl"
       >
-        Adrianna&apos;s Big, Brave <span className="whitespace-nowrap">School Day</span>
+        {title}
       </h2>
       <ImageCarousel
         slides={slides}
@@ -27,6 +28,7 @@ const BigBraveSchoolDay = () => {
         showControls={true}
         showViewAll={false}
         viewAllHref="/portfolio"
+        bookTitle={title}
       />
     </section>
   );

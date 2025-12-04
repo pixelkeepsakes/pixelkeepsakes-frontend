@@ -17,6 +17,7 @@ interface ImageCarouselProps {
   viewAllHref?: string;
   className?: string;
   aspectRatio?: string;
+  bookTitle: string;
 }
 
 export default function ImageCarousel({
@@ -27,6 +28,7 @@ export default function ImageCarousel({
   viewAllHref = '#',
   className = '',
   aspectRatio = '2/1',
+  bookTitle,
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -37,6 +39,7 @@ export default function ImageCarousel({
   const autoplayRef = useRef<NodeJS.Timeout | null>(null);
   const progressRef = useRef<NodeJS.Timeout | null>(null);
   const startTimeRef = useRef<number>(Date.now());
+  const [hasViewed, setHasViewed] = useState(false); // track if GA4 event already fired
 
   // Create infinite loop by duplicating slides
   const extendedSlides = [...slides, ...slides, ...slides];
@@ -108,17 +111,28 @@ export default function ImageCarousel({
     setCurrentIndex(slides.length);
   }, [slides.length]);
 
+  const trackBookViewed = () => {
+    if (!hasViewed && typeof window.gtag === "function") {
+      window.gtag("event", "book_viewed", {
+        book_title: bookTitle,
+      });
+      setHasViewed(true);
+    }
+  };
+
   // Simple scroll listener to check visibility
   useEffect(() => {
     const checkVisibility = () => {
-      if (trackRef.current && !hasStarted) {
+      if (trackRef.current && !hasViewed) {
         const rect = trackRef.current.getBoundingClientRect();
-        const isVisible = rect.top < window.innerHeight && rect.bottom > 0;
+        const elementHeight = rect.height;
+        const visibleHeight = Math.min(rect.bottom, window.innerHeight) - Math.max(rect.top, 0);
 
-        if (isVisible) {
-          console.log('Carousel is visible, starting autoplay');
-          setHasStarted(true);
-          setIsPlaying(true);
+        const isHalfVisible = visibleHeight / elementHeight >= 0.5;
+
+        if (isHalfVisible) {
+          trackBookViewed();
+          setIsPlaying(true); // optional: start autoplay
         }
       }
     };

@@ -1,5 +1,4 @@
 import { useState } from "react";
-import Script from "next/script";
 
 export default function Contact() {
   const [formData, setFormData] = useState({

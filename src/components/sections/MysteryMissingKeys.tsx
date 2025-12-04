@@ -1,5 +1,7 @@
 import ImageCarousel from '../ImageCarousel';
 
+const title = 'Adrianna&apos;s Big, Brave <span className="whitespace-nowrap">School Day';
+
 const slides = [
   { image: '/MysteryOfMissingKey/MMKPhotoCover.png', label: 'Front Cover', alt: 'Front Cover' },
   { image: '/MysteryOfMissingKey/MMKSlide1.png', label: 'Pages 2-3: Great Minds Dress Alike', alt: 'Pages 2-3: Great Minds Dress Alike' },
@@ -19,7 +21,7 @@ const BigBraveSchoolDay = () => {
       <h2
         className="text-center font-normal leading-tight text-3xl lg:text-4xl"
       >
-        The Mystery of the Missing Keys
+        {title}
       </h2>
       <ImageCarousel
         slides={slides}
@@ -28,6 +30,7 @@ const BigBraveSchoolDay = () => {
         showControls={true}
         showViewAll={false}
         viewAllHref="/portfolio"
+        bookTitle={title}
       />
 
     </section>

@@ -11,20 +11,19 @@ import MysteryMissingKeys from "@/components/sections/MysteryMissingKeys";
 import RumiPrint from "@/components/sections/RumiPrint";
 import BigBraveSchoolDay from "@/components/sections/BigBraveSchoolDay";
 
-useEffect(() => {
-  const handleScroll = () => {
-    if (window.scrollY > 300) { // or any threshold
-      if (typeof window.gtag === "function") {
-        window.gtag("event", "scroll_depth_300px");
-      }
-      window.removeEventListener("scroll", handleScroll);
-    }
-  };
-
-  window.addEventListener("scroll", handleScroll);
-}, []);
-
 export default function Home() {
+  useEffect(() => {
+    const handleScroll = () => {
+      if (window.scrollY > 300) { // or any threshold
+        if (typeof window.gtag === "function") {
+          window.gtag("event", "scroll_depth_300px");
+        }
+        window.removeEventListener("scroll", handleScroll);
+      }
+    };
+
+    window.addEventListener("scroll", handleScroll);
+  }, []);
   return (
     <>
       {/* Navigation */}
