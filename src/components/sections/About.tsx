@@ -16,7 +16,7 @@ const About = () => {
           <div className="max-w-6xl mx-auto grid grid-cols-1 md:grid-cols-2 gap-12">
             <div>
               <p className="mb-12 leading-relaxed">
-                Pixel Keepsakes creates personalized storybooks that turn your favorite people into the characters of your story. We specialize in custom storytelling and illustrations, helping families and friends craft unique, memorable experiences that can be cherished for years.
+                Pixel Keepsakes creates custom keepsake books that turn your favorite people into the characters of your story. We specialize in custom storytelling and illustrations, helping families and friends craft unique, memorable experiences that can be cherished for years.
               </p>
               <h3 className="text-2xl mb-6">Our vision</h3>
               <p>

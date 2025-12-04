@@ -16,8 +16,8 @@ const openSans = Open_Sans({
 });
 
 export const metadata: Metadata = {
-  title: "Pixel Keepsakes",
-  description: "See yourself in the story. Custom storybooks that turn your favorite people into the characters.",
+  title: "Pixel Keepsakes | Custom Personalized Storybooks",
+  description: "See yourself in the story. Custom keepsake books that turn your favorite people into the characters.",
 };
 
 export default function RootLayout({
