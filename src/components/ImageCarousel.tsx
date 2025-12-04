@@ -132,6 +132,7 @@ export default function ImageCarousel({
 
         if (isHalfVisible) {
           trackBookViewed();
+          setHasStarted(true);
           setIsPlaying(true); // optional: start autoplay
         }
       }
