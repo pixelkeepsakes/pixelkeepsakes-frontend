@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import '@/styles/globals.css';
 import { Open_Sans, Edu_TAS_Beginner } from "next/font/google";
+import Script from "next/script";
 
 const eduTASBeginner = Edu_TAS_Beginner({
   subsets: ['latin'],
-  display: 'swap', 
+  display: 'swap',
   weight: ['400', '500', '600', '700'],
   variable: "--font-edu-tas-beginner",
 });
@@ -30,6 +31,22 @@ export default function RootLayout({
       lang="en"
       className={`${eduTASBeginner.variable} ${openSans.variable}`}
     >
+      <head>
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=G-2BCVLHC8GB"
+          strategy="afterInteractive"
+        />
+        <Script id="ga4-init" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'G-2BCVLHC8GB', {
+              page_path: window.location.pathname,
+            });
+          `}
+        </Script>
+      </head>
       <body>
         {children}
       </body>
