@@ -9,7 +9,7 @@ const Hero = () => {
           See yourself <br />in the story.
         </h1>
         <p className="mt-4 text-lg sm:text-xl lg:text-xl text-center max-w-xl">
-          Custom storybooks that turn <br />your favorite people into the characters.
+          Custom keepsake books that turn <br />your favorite people into the characters.
         </p>
       </div>
 
