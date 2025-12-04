@@ -1,6 +1,6 @@
 import ImageCarousel from '../ImageCarousel';
 
-const title = 'Adrianna&apos;s Big, Brave School Day';
+const title = "Adrianna's Big, Brave School Day";
 
 const slides = [
   { image: '/BigBraveSchoolDay/BBSDPhotoCover.png', label: 'Front Cover', alt: 'Front Cover' },
