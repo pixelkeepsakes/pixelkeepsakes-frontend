@@ -1,6 +1,6 @@
 import ImageCarousel from '../ImageCarousel';
 
-const title = 'Adrianna&apos;s Big, Brave <span className="whitespace-nowrap">School Day';
+const title = 'The Mystery of the Missing Keys';
 
 const slides = [
   { image: '/MysteryOfMissingKey/MMKPhotoCover.png', label: 'Front Cover', alt: 'Front Cover' },
