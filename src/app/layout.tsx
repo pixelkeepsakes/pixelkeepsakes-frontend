@@ -34,9 +34,9 @@ export default function RootLayout({
       <head>
         <Script
           src="https://www.googletagmanager.com/gtag/js?id=G-2BCVLHC8GB"
-          strategy="beforeInteractive"
+          strategy="afterInteractive"
         />
-        <Script id="ga4-init" strategy="beforeInteractive">
+        <Script id="ga4-init" strategy="afterInteractive">
           {`
             window.dataLayer = window.dataLayer || [];
             function gtag(){dataLayer.push(arguments);}
