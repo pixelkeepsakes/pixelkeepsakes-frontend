@@ -1,7 +1,11 @@
-module.exports = {
+import type { NextConfig } from 'next';
+
+const config: NextConfig = {
+  output: 'standalone',
   reactStrictMode: true,
-  allowedDevOrigins: [
-    'pixelkeepsakes.com',
-    '*.pixelkeepsakes.com'
-  ],
+  images: {
+    qualities: [75, 90],
+  },
 };
+
+export default config;
