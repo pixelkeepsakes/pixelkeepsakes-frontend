@@ -1,6 +1,5 @@
-import type { NextConfig } from 'next';
-
-const config: NextConfig = {
+/** @type {import('next').NextConfig} */
+const nextConfig = {
   output: 'standalone',
   reactStrictMode: true,
   images: {
@@ -8,4 +7,4 @@ const config: NextConfig = {
   },
 };
 
-export default config;
+export default nextConfig;
