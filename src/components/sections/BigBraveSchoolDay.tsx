@@ -16,11 +16,6 @@ const BigBraveSchoolDay = () => {
       id="school"
       className="flex flex-col justify-center min-h-[calc(100dvh-64px)] py-[32px]"
     >
-      <h2
-        className="text-center font-normal leading-tight text-3xl lg:text-4xl"
-      >
-        {title}
-      </h2>
       <ImageCarousel
         slides={slides}
         aspectRatio="16/10"

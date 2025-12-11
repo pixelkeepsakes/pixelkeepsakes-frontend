@@ -5,7 +5,7 @@ const RumiPrint = () => {
   return (
     <section
       id="rumi"
-      className="flex flex-col justify-center bg-white items-center text-black min-h-[calc(100dvh-64px)] py-[32px] px-6"
+      className="flex flex-col justify-center bg-white items-center text-[var(--brand-blue)] min-h-[calc(100dvh-64px)] py-[32px] px-6"
     >
       <h2
         className="text-center font-normal leading-tight mb-9 text-3xl lg:text-4xl text-[var(--brand-blue)]"

@@ -18,6 +18,7 @@ interface ImageCarouselProps {
   className?: string;
   aspectRatio?: string;
   bookTitle: string;
+  lightBackground?: boolean;
 }
 
 export default function ImageCarousel({
@@ -29,6 +30,7 @@ export default function ImageCarousel({
   className = '',
   aspectRatio = '2/1',
   bookTitle,
+  lightBackground,
 }: ImageCarouselProps) {
   const [currentIndex, setCurrentIndex] = useState(0);
   const [isPlaying, setIsPlaying] = useState(false);
@@ -178,132 +180,147 @@ export default function ImageCarousel({
   };
 
   return (
-    <div className={`relative w-full flex items-center justify-center pt-10 pb-16 ${className}`}>
-      {/* Carousel Wrapper - Added padding to show partial slides */}
-      <div className="relative w-full max-w-[100vw] overflow-hidden px-0 lg:px-[25vw]">
-        <div
-          ref={trackRef}
-          className={`flex gap-[2vw] ${isTransitioning ? 'transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]' : ''}`}
-          style={{
-            transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 2}vw))`,
-          }}
-        >
-          {extendedSlides.map((slide, index) => (
-            <div
-              key={index}
-              className={`flex-shrink-0 w-full relative transition-opacity duration-[800ms]`}
-              style={{ aspectRatio }}
-            >
-              <div className="w-full h-full rounded-lg overflow-hidden relative group ">
-                <Image
-                  src={slide.image}
-                  alt={slide.alt || slide.label}
-                  fill
-                  className="object-cover"
-                  sizes="(min-width: 1024px) 50vw, 100vw"
-                  quality={90}
-                  priority={index < 4}
-                />
-                <div className="absolute bottom-2 left-2 bg-black/50 backdrop-blur-md px-3 py-2 rounded-full text-xs font-medium text-white
-                opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  {slide.label}
-                </div>
-              </div>
-            </div>
-          ))}
-        </div>
-      </div>
-
-      {/* Navigation Arrows */}
-      {showControls && (
-        <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-6 sm:px-10 pointer-events-none z-10">
-          <button
-            onClick={prevSlide}
-            className="w-[40px] h-[40px] bg-white backdrop-blur-md rounded-full pointer-events-auto transition-all duration-300 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-[var(--brand-blue)]"
-            aria-label="Previous slide"
+    <><h2
+      className={`text-center font-normal leading-tight text-3xl lg:text-4xl ${lightBackground ? 'text-[var(--brand-blue)]' : ''
+        }`}
+    >
+      {bookTitle}
+    </h2>
+      <div className={`relative w-full flex items-center justify-center pt-10 pb-16 ${className}`}>
+        {/* Carousel Wrapper - Added padding to show partial slides */}
+        <div className="relative w-full max-w-[100vw] overflow-hidden py-2 px-0 lg:px-[25vw]">
+          <div
+            ref={trackRef}
+            className={`flex gap-[2vw] ${isTransitioning ? 'transition-transform duration-[800ms] ease-[cubic-bezier(0.4,0,0.2,1)]' : ''}`}
+            style={{
+              transform: `translateX(calc(-${currentIndex * 100}% - ${currentIndex * 2}vw))`,
+            }}
           >
-            <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
-              <path
-                d="M10 2L2 10L10 18"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-          <button
-            onClick={nextSlide}
-            className="w-[40px] h-[40px] bg-white backdrop-blur-md rounded-full pointer-events-auto transition-all duration-300 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-[var(--brand-blue)]"
-            aria-label="Next slide"
-          >
-            <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
-              <path
-                d="M2 2L10 10L2 18"
-                stroke="currentColor"
-                strokeWidth="3"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-        </div>
-      )}
-
-      {/* Controls */}
-      {showControls && (
-        <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 sm:px-10 z-10">
-          {/* Play/Pause Button */}
-          <button
-            onClick={togglePlayPause}
-            className="w-10 h-10 bg-white/10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 hover:bg-white/20"
-            aria-label={isPlaying ? 'Pause' : 'Play'}
-          >
-            {isPlaying ? (
-              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="text-white">
-                <rect width="3" height="12" rx="1" fill="white" />
-                <rect x="7" width="3" height="12" rx="1" fill="white" />
-              </svg>
-            ) : (
-              <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="text-white">
-                <path d="M0 0L10 6L0 12V0Z" fill="white" />
-              </svg>
-            )}
-          </button>
-
-          {/* Dots */}
-          <div className="flex gap-2 items-center px-6 py-3">
-            {slides.map((_, index) => (
+            {extendedSlides.map((slide, index) => (
               <div
                 key={index}
-                className={`h-1 rounded-full transition-all duration-300 relative overflow-hidden ${index === actualIndex
-                  ? 'w-8 bg-white/50'
-                  : 'w-1 bg-white/30'
-                  }`}
+                className={`flex-shrink-0 w-full relative transition-opacity duration-[800ms]`}
+                style={{ aspectRatio }}
               >
-                {index === actualIndex && (
-                  <div
-                    className="absolute top-0 left-0 bg-white h-full transition-all duration-100 linear"
-                    style={{ width: `${progress}%` }}
+                <div className="w-full h-full relative group">
+                  <Image
+                    src={slide.image}
+                    alt={slide.alt || slide.label}
+                    fill
+                    className="object-cover rounded-lg shadow-[0_0_8px_rgba(0,0,0,0.3)]"
+                    sizes="(min-width: 1024px) 50vw, 100vw"
+                    quality={90}
+                    priority={index < 4}
                   />
-                )}
+                  <div className="absolute bottom-2 left-2 bg-black/50 backdrop-blur-md px-3 py-2 rounded-full text-xs font-medium text-white
+                opacity-100 md:opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                    {slide.label}
+                  </div>
+                </div>
               </div>
             ))}
           </div>
-
-          {/* View All Link */}
-          {showViewAll ? (
-            <a
-              href={viewAllHref}
-              className="text-white text-xs uppercase tracking-wider transition-opacity duration-300 hover:opacity-70"
-            >
-              View all
-            </a>
-          ) : (
-            <span>&nbsp;</span>
-          )}
         </div>
-      )}
-    </div>
+
+        {/* Navigation Arrows */}
+        {showControls && (
+          <div className="absolute top-1/2 -translate-y-1/2 w-full flex justify-between px-6 sm:px-10 pointer-events-none z-10">
+            <button
+              onClick={prevSlide}
+              className="w-[40px] h-[40px] bg-white backdrop-blur-md rounded-full pointer-events-auto transition-all duration-300 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-[var(--brand-blue)]"
+              aria-label="Previous slide"
+            >
+              <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+                <path
+                  d="M10 2L2 10L10 18"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+            <button
+              onClick={nextSlide}
+              className="w-[40px] h-[40px] bg-white backdrop-blur-md rounded-full pointer-events-auto transition-all duration-300 hover:bg-white/20 hover:scale-110 flex items-center justify-center text-[var(--brand-blue)]"
+              aria-label="Next slide"
+            >
+              <svg width="12" height="20" viewBox="0 0 12 20" fill="none">
+                <path
+                  d="M2 2L10 10L2 18"
+                  stroke="currentColor"
+                  strokeWidth="3"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
+              </svg>
+            </button>
+          </div>
+        )}
+
+        {/* Controls */}
+        {showControls && (
+          <div className="absolute bottom-0 left-0 right-0 flex items-center justify-between px-6 sm:px-10 z-10">
+            {/* Play/Pause Button */}
+            <button
+              onClick={togglePlayPause}
+              className={`w-10 h-10 backdrop-blur-md border border-white/20 rounded-full flex items-center justify-center transition-all duration-300 ${lightBackground ? 'bg-[var(--brand-blue)]/90 hover:bg-[var(--brand-blue)]/100' : 'bg-white/10 hover:bg-white/20'
+                }`}
+              aria-label={isPlaying ? 'Pause' : 'Play'}
+            >
+              {isPlaying ? (
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="text-white">
+                  <rect width="3" height="12" rx="1" fill="white" />
+                  <rect x="7" width="3" height="12" rx="1" fill="white" />
+                </svg>
+              ) : (
+                <svg width="10" height="12" viewBox="0 0 10 12" fill="none" className="text-white">
+                  <path d="M0 0L10 6L0 12V0Z" fill="white" />
+                </svg>
+              )}
+            </button>
+
+            {/* Dots */}
+            <div className="flex gap-2 items-center px-6 py-3">
+              {slides.map((_, index) => {
+                // Determine base color for active/inactive dots
+                const activeColor = lightBackground ? 'bg-[var(--brand-blue)]/50' : 'bg-white/50';
+                const inactiveColor = lightBackground ? 'bg-[var(--brand-blue)]/30' : 'bg-white/30';
+
+                return (
+                  <div
+                    key={index}
+                    className={`h-1 rounded-full transition-all duration-300 relative overflow-hidden ${index === actualIndex ? `w-8 ${activeColor}` : `w-1 ${inactiveColor}`
+                      }`}
+                  >
+                    {index === actualIndex && (
+                      <div
+                        className="absolute top-0 left-0 h-full transition-all duration-100 linear"
+                        style={{
+                          width: `${progress}%`,
+                          backgroundColor: lightBackground ? 'var(--brand-blue)' : 'white',
+                        }}
+                      />
+                    )}
+                  </div>
+                );
+              })}
+            </div>
+
+            {/* View All Link */}
+            {showViewAll ? (
+              <a
+                href={viewAllHref}
+                className="text-white text-xs uppercase tracking-wider transition-opacity duration-300 hover:opacity-70"
+              >
+                View all
+              </a>
+            ) : (
+              <span>&nbsp;</span>
+            )}
+          </div>
+        )}
+      </div>
+    </>
   );
 }

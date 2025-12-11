@@ -16,13 +16,9 @@ const BigBraveSchoolDay = () => {
   return (
     <section
       id="mystery"
-      className="flex flex-col justify-center min-h-[calc(100dvh-64px)] py-[32px]"
+      className="flex flex-col justify-center bg-white min-h-[calc(100dvh-64px)] py-[32px]"
     >
-      <h2
-        className="text-center font-normal leading-tight text-3xl lg:text-4xl"
-      >
-        {title}
-      </h2>
+      
       <ImageCarousel
         slides={slides}
         aspectRatio="2/1"
@@ -31,6 +27,7 @@ const BigBraveSchoolDay = () => {
         showViewAll={false}
         viewAllHref="/portfolio"
         bookTitle={title}
+        lightBackground={true}
       />
 
     </section>

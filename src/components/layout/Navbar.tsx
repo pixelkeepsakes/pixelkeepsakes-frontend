@@ -3,14 +3,15 @@ import { useState, useEffect } from "react";
 import Image from "next/image";
 import { motion, AnimatePresence } from "framer-motion";
 
-const sections = ["home", "mystery", "rumi", "school", "about", "book"];
+const sections = ["home", "about", "toyhunt", "mystery", "school", "rumi", "book"];
 const displayNames: Record<string, string> = {
   home: "Home",
-  mystery: "Mystery",
-  rumi: "Rumi",
-  school: "School",
   about: "About",
-  book: "Book A Story",
+  toyhunt: "Toy Hunt",
+  mystery: "Mystery",
+  school: "School",
+  rumi: "Rumi",
+  book: "Contact",
 };
 
 const Navbar = () => {
