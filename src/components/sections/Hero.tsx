@@ -29,7 +29,7 @@ const Hero = () => {
           className="btn btn-large btn-primary btn-grow font-semibold text-lg px-6 py-3"
           onClick={() => trackHeroButtonClick("Browse Stories")}
           >
-          <a href="#mystery">Browse Stories</a>
+          <a href="#toyhunt">Browse Stories</a>
         </button>
         <button
           className="btn btn-large btn-hero btn-grow font-semibold text-lg px-6 py-3"
