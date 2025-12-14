@@ -39,7 +39,7 @@ export default function Contact() {
       });
 
       if (res.ok) {
-        setStatus("Thank you! We&apos;ll be in touch soon.");
+        setStatus("Thank you! We'll be in touch soon.");
         setTimeout(() => setStatus(""), 5000);
         setFormData({
           name: "",
