@@ -179,7 +179,7 @@ export default function TestimonialForm() {
                   name="consent"
                   checked={formData.consent}
                   onChange={handleChange}
-                />
+                />&nbsp;
                 I agree to have my testimonial displayed on the Pixel Keepsakes website.
               </label>
               <label htmlFor="photoconsent">
@@ -191,7 +191,7 @@ export default function TestimonialForm() {
                   onChange={handleChange}
                   disabled={!formData.photo} // still disable if no photo
                   required={!!formData.photo}
-                />
+                />&nbsp;
                 I give permission for Pixel Keepsakes to display my photo and illustrated
                 character on its website and marketing materials.
               </label>
@@ -199,7 +199,7 @@ export default function TestimonialForm() {
                 type="submit"
                 className="btn-primary btn-large w-full font-semibold normal-case px-6 py-3"
               >
-                Add your testimonial!
+                Share Your Story
               </button>
               {status && <p className="text-sm text-gray-500">{status}</p>}
             </form>
