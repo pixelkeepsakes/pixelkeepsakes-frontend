@@ -35,7 +35,10 @@ export default function Contact() {
         headers: {
           "Content-Type": "application/json",
         },
-        body: JSON.stringify(formData),
+        body: JSON.stringify({
+          ...formData,
+          submission_type: "ask_about_book",
+        }),
       });
 
       if (res.ok) {
