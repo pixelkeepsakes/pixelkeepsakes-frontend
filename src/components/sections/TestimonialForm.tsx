@@ -107,7 +107,7 @@ export default function TestimonialForm() {
           >
             Share Your<br />
             Pixel Keepsakes<br />
-            Story
+            Experience
           </h2>
         </div>
 
@@ -115,7 +115,7 @@ export default function TestimonialForm() {
         <div className="w-full md:w-2/3 xl:w-1/3">
           <div className="card card-light p-6 sm:p-10">
             <p className="text-xl mb-6 font-bold">
-              We&apos;d love to hear what you <br />thought about your book.
+              Share what you loved about your book and inspire other families.
             </p>
             <form onSubmit={handleSubmit} className="flex flex-col gap-4">
               <label htmlFor="name">Your Name*</label>
